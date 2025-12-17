@@ -3,11 +3,11 @@ import Link from "next/link"
 
 function Body() {
     return (
-        <section className="max-w-7xl w-full bg-zinc-100 my-2 shadow-slate-400/30 shadow-2xl">
+        <section className="max-w-7xl w-full bg-zinc-100 my-2 shadow-indigo-400/30 shadow-2xl">
 
             <div>
 
-                <div className="shadow-slate-400/30 shadow-2xl flex py-6 px-8 justify-between items-center">
+                <div className="shadow-indigo-400/30 shadow-2xl flex py-6 px-8 justify-between items-center">
                     <div className="flex gap-4 items-center">
                         {/*Ícone de marcar completo*/}
                         <div className="size-12 bg-indigo-600 rounded-full flex items-center justify-center">
