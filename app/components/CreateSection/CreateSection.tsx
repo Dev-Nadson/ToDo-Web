@@ -11,20 +11,20 @@ function CreateSection({ setActivities, activities }: { setActivities: (novoArra
 
     return (
         <article className="h-full max-w-7xl w-full bg-zinc-100 border-x-8 border border-indigo-600 rounded-3xl my-2 shadow-indigo-400/30 shadow-2xl">
-            <div className="shadow-indigo-400/30 shadow-lg flex flex-col md:flex-row py-5 px-2 md:px-10 justify-between items-center">
+            <div className="shadow-indigo-400/30 shadow-lg gap-2 md:gap-4 flex flex-col md:flex-row py-5 px-2 md:px-10 justify-between items-center">
 
-                <div className="flex justify-between items-center max-w-243 border border-slate-300 w-full rounded-3xl text-nowrap">
+                <div className="flex justify-between gap-2 md:gap-0 flex-col md:flex-row items-center max-w-243 md:border md:border-slate-300 w-full rounded-3xl text-nowrap">
                     <input
                         type="text"
                         placeholder="Adicione uma nova atividade"
-                        className="flex placeholder:text-zinc-400  p-3 flex-1 rounded-3xl"
+                        className="flex placeholder:text-zinc-400 p-3 flex-1 w-full rounded-3xl border border-slate-300 md:border-0"
                         value={name}
                         onChange={(e: any) => setName(e.target.value)}
                     />
 
                     <input
                         type="date"
-                        className="flex justify-center p-3 rounded-full flex-1 text-transparent cursor-pointer [&::-webkit-datetime-edit]:hidden"
+                        className="flex justify-center p-3 flex-1 md:flex-0 w-full rounded-full cursor-pointer border md:border-0 border-slate-300"
                         value={dueDate}
                         onChange={(e: any) => setDueDate(e.target.value)}
                     />
