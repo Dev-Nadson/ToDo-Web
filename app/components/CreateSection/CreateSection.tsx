@@ -10,7 +10,7 @@ function CreateSection({ setActivities, activities }: { setActivities: (novoArra
     console.log(activities)
 
     return (
-        <article className="h-full max-w-7xl w-full bg-zinc-100 border-x-8 border border-indigo-600 rounded-3xl my-2 shadow-indigo-400/30 shadow-2xl">
+        <article className="h-full max-w-7xl w-full bg-zinc-100 border-x-8 border border-indigo-600 rounded-3xl mt-2 shadow-indigo-400/30 shadow-2xl">
             <div className="shadow-indigo-400/30 shadow-lg gap-2 md:gap-4 flex flex-col md:flex-row py-5 px-2 md:px-10 justify-between items-center">
 
                 <div className="flex justify-between gap-2 md:gap-0 flex-col md:flex-row items-center max-w-243 md:border md:border-slate-300 w-full rounded-3xl text-nowrap">
