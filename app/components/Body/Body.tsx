@@ -5,9 +5,9 @@ function Body({ activities }: { activities: { name: string, dueDate: string }[] 
         <section className="max-w-7xl w-full bg-zinc-100 my-2 shadow-indigo-400/30 shadow-2xl rounded-md">
 
             <div className="flex flex-col gap-4 py-6 px-8">
-                {activities.length > 0 && activities.map((activity: any) => {
+                {activities.length > 0 && activities.map((activity: any, index: number) => {
                     return (
-                        <article className="h-full">
+                        <article key={index} className="h-full">
                             <div className="shadow-indigo-400/30 border-l-8 flex-col md:flex-row gap-5 md:gap-0 border border-indigo-600 shadow-lg flex rounded-3xl p-6 justify-between items-end md:items-center ">
 
                                 <div className="flex gap-4 items-center w-full">
@@ -16,7 +16,7 @@ function Body({ activities }: { activities: { name: string, dueDate: string }[] 
                                     </div>
 
                                     <div className="flex flex-col gap-1">
-                                        <h3 className="text-2xl border border-amber-300">{activity.name}</h3>
+                                        <h3 className="text-2xl">{activity.name}</h3>
                                         <div className="flex gap-2">
                                             <CalendarClock className="" />
                                             <p>{activity.dueDate}</p>
