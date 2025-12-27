@@ -1,13 +1,29 @@
 'use client'
 
 import { useState } from "react"
+import z from "zod"
 import { PencilLine } from "lucide-react"
 
-function CreateSection({ setActivities, activities }: { setActivities: (novoArray: { name: string, dueDate: string }[]) => void, activities: { name: string, dueDate: string }[] }) {
+const taskSchema = z.object({
+    name: z.string().min(2, "Insira o nome da atividade").trim(),
+    dueDate: z.string().min(1, "Insira a data da atividade")
+})
+
+interface CreateSectionProps {
+    setActivities: (novoArray: { name: string, dueDate: string }[]) => void
+    activities: { name: string, dueDate: string }[]
+}
+
+type TaskFormData = z.infer<typeof taskSchema>
+
+function CreateSection({ setActivities, activities }: CreateSectionProps) {
     const [name, setName] = useState<string>('')
     const [dueDate, setDueDate] = useState<string>('')
 
     console.log(activities)
+    const onSubmit = (data: TaskFormData) => {
+        setActivities([...(activities || []), data]) // Limpa o formulário após criar
+    }
 
     return (
         <article className="h-full max-w-7xl w-full bg-zinc-100 border-x-8 border border-indigo-600 rounded-3xl mt-2 shadow-indigo-400/30 shadow-2xl">
@@ -31,7 +47,7 @@ function CreateSection({ setActivities, activities }: { setActivities: (novoArra
                 </div>
 
                 <div className="flex items-center py-2 px-4  bg-indigo-600 rounded-2xl cursor-pointer hover:bg-indigo-700 hover:scale-110 duration-300 transition-all hover:shadow-lg hover:shadow-indigo-400">
-                    <button className="flex items-center gap-2" onClick={(() => setActivities([...(activities || []), { name, dueDate }]))}>
+                    <button className="flex items-center gap-2" onClick={onSubmit({ name, dueDate })} >
                         <PencilLine className="text-zinc-50 size-6" />
                         <p className="font-bold text-purple-50 text-lg"> Criar Atividade </p>
                     </button>
